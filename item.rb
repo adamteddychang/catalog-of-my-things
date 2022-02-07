@@ -1,3 +1,5 @@
+require 'date'
+
 class Item
   attr_accessor :name, :publish_date, :archived, :id
   attr_reader :label, :genre
@@ -7,12 +9,15 @@ class Item
     @name = name
     @genre = genre
     @label = label
-    @publish_date = publish_date
+    @publish_date = Date.parse(publish_date)
     @archived = archived
   end
 
   def can_archived?
-    return false unless publish_date < 10
+    current_time = Date.today
+    time_different = current_time.year - publish_date.year
+    puts time_different
+    time_different < 10 ? false : true 
   end
 
   def move_archive

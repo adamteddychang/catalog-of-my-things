@@ -12,3 +12,8 @@ class MusicAlbum < Item
     super and @on_spotify
   end
 end
+
+music_album1 = MusicAlbum.new(1000, 'Sirenler', 'Rock', '2005-10-10', true)
+puts music_album1.can_archived?
+puts music_album1.publish_date
+puts music_album1.on_spotify
