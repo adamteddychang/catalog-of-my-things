@@ -1,6 +1,6 @@
 class Item
   attr_accessor :name, :publish_date, :archived
-  attr_reader :label
+  attr_reader :label, :genre
 
   def initialize(id, name, genre, _label, publish_date, archived = false)
     @id = id
