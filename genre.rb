@@ -12,9 +12,3 @@ class Genre
     item.genre = self
   end
 end
-
-genre1 = Genre.new(1000, 'Rock')
-puts genre1
-puts genre1.id
-puts genre1.name
-puts genre1.items

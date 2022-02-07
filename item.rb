@@ -33,12 +33,3 @@ class Item
     genre.items.push(self) unless genre.items.include?(self)
   end
 end
-
-item1 = Item.new(1000, 'Sirenler', 'Rock', 'MVO', '2010-11-11')
-puts item1
-puts item1.id
-puts item1.name
-puts item1.genre
-puts item1.label
-puts item1.publish_date
-puts item1.archived
