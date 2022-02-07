@@ -1,5 +1,5 @@
 class Item
-  attr_accessor :name, :genre, :publish_date, :archived
+  attr_accessor :name, :publish_date, :archived
   attr_reader :label
 
   def initialize(id, name, genre, _label, publish_date, archived = false)
@@ -22,5 +22,10 @@ class Item
   def label=(label)
     @label = label
     label.item.push(self) unless label.item.include?(self)
+  end
+
+  def genre=(genre)
+    @genre = genre
+    genre.item.push(self) unless genre.item.include?(self)
   end
 end
