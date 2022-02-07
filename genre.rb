@@ -1,6 +1,5 @@
 class Genre
-  attr_reader :id, :items
-  attr_accessor :name
+  attr_accessor :name, :id, :items
 
   def initialize(id, name)
     @id = id
@@ -13,3 +12,9 @@ class Genre
     item.genre = self
   end
 end
+
+genre1 = Genre.new(1000, 'Rock')
+puts genre1
+puts genre1.id
+puts genre1.name
+puts genre1.items

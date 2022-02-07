@@ -4,7 +4,7 @@ class Item
   attr_accessor :name, :publish_date, :archived, :id
   attr_reader :label, :genre
 
-  def initialize(id, name, genre, _label, publish_date, archived = false)
+  def initialize(id, name, genre, label, publish_date, archived = false)
     @id = id
     @name = name
     @genre = genre
@@ -16,12 +16,11 @@ class Item
   def can_archived?
     current_time = Date.today
     time_different = current_time.year - publish_date.year
-    puts time_different
-    time_different < 10 ? false : true 
+    time_different >= 10
   end
 
   def move_archive
-    archived == true if can_archived? == true
+    @archived == true if can_archived?
   end
 
   def label=(label)
@@ -31,6 +30,15 @@ class Item
 
   def genre=(genre)
     @genre = genre
-    genre.item.push(self) unless genre.item.include?(self)
+    genre.items.push(self) unless genre.items.include?(self)
   end
 end
+
+item1 = Item.new(1000, 'Sirenler', 'Rock', 'MVO', '2010-11-11')
+puts item1
+puts item1.id
+puts item1.name
+puts item1.genre
+puts item1.label
+puts item1.publish_date
+puts item1.archived
