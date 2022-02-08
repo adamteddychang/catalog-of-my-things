@@ -2,7 +2,7 @@ require_relative '../book'
 
 describe Book do
   context 'initialize Book with a old book' do
-    book1 = Book.new(100, 'LOTR', 'fantasy', 'cool_books', '1954-07-29', 'Allen & Unwin', 'good')
+    book1 = Book.new(100, 'LOTR', 'cool_books', '1954-07-29', 'Allen & Unwin', 'good')
 
     it 'should return a book' do
       expect(book1).to be_an_instance_of Book
@@ -18,7 +18,7 @@ describe Book do
   end
 
   context 'initialize Book with a new book' do
-    book2 = Book.new(20, 'Red Handed', 'Political Science', 'boring_books', '2022-01-25', 'HarperCollins', 'good')
+    book2 = Book.new(20, 'Red Handed', 'boring_books', '2022-01-25', 'HarperCollins', 'good')
 
     it 'should return a book' do
       expect(book2).to be_an_instance_of Book
@@ -34,7 +34,7 @@ describe Book do
   end
 
   context 'initialize Book with a new book with bad cover' do
-    book3 = Book.new(555, 'The Midnight Library', 'Science Fiction', 'cool_books', '2020-08-13', 'Canongate Books',
+    book3 = Book.new(555, 'The Midnight Library', 'cool_books', '2020-08-13', 'Canongate Books',
                      'bad')
 
     it 'should return a book' do
