@@ -1,12 +1,15 @@
+require 'json'
 require_relative 'book'
 require_relative 'label'
 require_relative 'genre'
 require_relative 'music_album'
+require_relative 'data_store'
 
 class App
+  include DataStore
   def initialize
-    @albums = []
-    @genres = []
+    @albums = load_albums
+    @genres = load_genres
     @books = []
     @labels = []
   end
@@ -31,7 +34,7 @@ class App
   end
 
   def list_music_album
-    puts 'There is no Album Yet! Please add books.' if @albums.empty?
+    puts 'There is no Album Yet! Please add album.' if @albums.empty?
     @albums.each do |album|
       puts "[#{album.id}], Name: #{album.name}, Genre: #{album.genre} Publish Date: #{album.publish_date}"
     end
