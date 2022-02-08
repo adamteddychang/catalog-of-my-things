@@ -2,7 +2,7 @@ class Genre
   attr_accessor :name, :id, :items
 
   def initialize(id, name)
-    @id = id
+    @id = Random.rand(1..1000)
     @name = name
     @items = []
   end
@@ -10,9 +10,5 @@ class Genre
   def add_item(item)
     @items << item
     item.genre = self
-  end
-
-  def display_genre
-    puts("#{@id} name:#{@name}")
   end
 end

@@ -11,8 +11,4 @@ class MusicAlbum < Item
   def can_archived?
     super and @on_spotify
   end
-
-  def display_music_album
-    puts("#{id} Name: #{name}, Genre: #{genre.name}, Publish Date: #{@publish_date}")
-  end
 end
