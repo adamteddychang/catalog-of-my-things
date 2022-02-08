@@ -1,5 +1,9 @@
+require_relative 'app'
+
 class Main
-  def initialize; end
+  def initialize
+    @app = App.new
+  end
 
   def menu
     puts 'Select an option from below by entering a number:
@@ -17,21 +21,18 @@ class Main
   def get_opt(input)
     case input
     when '1'
-      puts 'List all books'
+      @app.list_books
     when '2'
       puts 'List all music albums'
     when '3'
       puts 'List all genres'
     when '4'
-      puts 'List all Labels'
+      @app.list_labels
     when '5'
       puts 'Add a book'
+      @app.add_book_details
     when '6'
       puts 'Add a music album'
-    when '7'
-      puts 'Add genres'
-    when '8'
-      puts 'Add Label'
     when '9'
       puts 'exit'
     end
