@@ -1,4 +1,3 @@
-
 require_relative 'book'
 require_relative 'label'
 require_relative 'genre'
@@ -21,7 +20,7 @@ class App
     when '3'
       list_genres
     when '4'
-     list_labels
+      list_labels
     when '5'
       add_book_details
     when '6'
@@ -62,9 +61,8 @@ class App
     new_music_album = MusicAlbum.new(id, name, genre, date, on_spotify)
     @albums << new_music_album
     @genres << new_music_album.genre
-
   end
-  
+
   def get_input(request_text)
     print "#{request_text}: "
     gets.chomp
@@ -121,13 +119,14 @@ class App
   def list_books
     puts 'There are no books yet! Please add books.' if @books.empty?
     @books.each do |book|
-      puts "[#{book['id']}], Name: #{book['name']},
-      Label: #{book['label']} Publisher: #{book['publisher']}
-      Cover State: #{book['cover_state']}"
+      print "[#{book['id']}] Name:#{book['name']} "
+      print "Label: #{book['label']} "
+      puts "Publisher: #{book['publisher']} Cover State: #{book['cover_state']}"
     end
   end
 
   def list_labels
     puts 'There are no labels yet!' if @labels.empty?
     @labels.each { |label| puts label }
+  end
 end

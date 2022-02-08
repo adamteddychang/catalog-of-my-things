@@ -14,7 +14,6 @@ class Main
           5 - Add a book
           6 - Add a music Album
           7 - Quit'
-
   end
 
   def run
