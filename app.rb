@@ -27,7 +27,7 @@ class App
   end
 
   def list_music_album
-    puts 'There is no Album Yet! Please add books.' if @albums.empty?
+    puts 'There is no Album Yet! Please add album.' if @albums.empty?
     @albums.each do |album|
       puts "[#{album.id}], Name: #{album.name}, Genre: #{album.genre} Publish Date: #{album.publish_date}"
     end
