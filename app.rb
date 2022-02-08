@@ -45,6 +45,12 @@ class App
     @genres.each { |genre| puts genre }
   end
 
+  def add_genre(name)
+    id = Random.rand(1..1000)
+    new_genre = Genre.new(id, name)
+    @genres << new_genre.genre
+  end
+
   def add_music_album
     id = Random.rand(1..1000)
     print 'Name: '
@@ -63,7 +69,7 @@ class App
     end
     new_music_album = MusicAlbum.new(id, name, genre, date, on_spotify)
     @albums << new_music_album
-    @genres << new_music_album.genre
+    add_genre(name)
   end
 
   def get_input(request_text)
