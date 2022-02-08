@@ -25,7 +25,7 @@ class Item
 
   def label=(label)
     @label = label
-    label.item.push(self) unless label.item.include?(self)
+    label.items.push(self) unless label.items.include?(self)
   end
 
   def genre=(genre)

@@ -56,3 +56,5 @@ Style/OptionalBooleanParameter:
   Enabled: false
 Metrics/ParameterLists: 
   Enabled: false
+Layout/EndOfLine:
+  Enabled: false
