@@ -1,12 +1,14 @@
 require 'json'
 require_relative 'music_album'
 require_relative 'genre'
+require_relative 'book'
+require_relative 'label'
 
 module DataStore
   def load_albums
     if File.exist?('album.json')
       JSON.parse(File.read('album.json')).map do |album|
-        MusicAlbum.new(album['id'],album['name'], album['genre'], album['publish_date'], album['on_spotify'])
+        MusicAlbum.new(album['id'], album['name'], album['genre'], album['publish_date'], album['on_spotify'])
       end
     else
       []
@@ -16,7 +18,7 @@ module DataStore
   def load_genres
     if File.exist?('genre.json')
       JSON.parse(File.read('genre.json')).map do |genre|
-        Genre.new(genre['name'])
+        Genre.new(genre['id'], genre['name'])
       end
     else
       []
@@ -42,9 +44,7 @@ module DataStore
 
   def load_books
     if File.exist?('books.json')
-      JSON.parse(File.read('books.json')).map do |book|
-        MusicAlbum.new(book['id'],book['name'], book['label'], book['publish_date'], book['publisher'], book['cover_state'])
-      end
+      JSON.parse(File.read('books.json'))
     else
       []
     end
@@ -52,22 +52,28 @@ module DataStore
 
   def load_labels
     if File.exist?('labels.json')
-      JSON.parse(File.read('labels.json')).map do |label|
-        Genre.new(label['id'], label['title'], label['color'])
-      end
+      JSON.parse(File.read('labels.json'))
     else
       []
     end
   end
 
-
   def save_book
     booksarr = []
     @books.each do |book|
-      booksarr.push({})
+      booksarr.push({ id: book['id'], name: book['name'],
+                      label: book['label'], publish_date: book['publish_date'],
+                      publisher: book['publisher'], cover_state: book['cover_state'] })
     end
     open('books.json', 'w') { |f| f << JSON.generate(booksarr) }
   end
 
-
+  def save_label
+    labelsarr = []
+    @labels.each do |label|
+      labelsarr.push({ id: label['id'], title: label['title'],
+                       color: label['color'] })
+    end
+    open('labels.json', 'w') { |f| f << JSON.generate(labelsarr) }
+  end
 end
