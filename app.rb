@@ -73,7 +73,6 @@ class App
     hash = {
       'id' => newbook_instance.id,
       'name' => newbook_instance.name,
-      # 'genre' => newbook_instance.genre,
       'label' => newbook_instance.label,
       'publish_date' => newbook_instance.publish_date,
       'publisher' => newbook_instance.publisher,
@@ -86,7 +85,6 @@ class App
     puts 'Enter book details'
     id = Random.rand(1..500)
     name = get_input('Input book name')
-    # genre = get_input('Input book genre')
     label = get_input('Input book label')
     publish_date = get_input('Input publish date')
     publisher = get_input('Input publisher name')
@@ -99,7 +97,6 @@ class App
 
   def add_label_details(title)
     id = Random.rand(1..500)
-    # title = get_input('Input label title')
     color = get_input('Input label color')
     add_label([id, title, color])
   end
