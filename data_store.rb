@@ -22,4 +22,14 @@ module DataStore
       []
     end
   end
+
+  def save_album
+    albumData = []
+    genreData = []
+    @albums.each do |album|
+      albumData.push({ name: album.name, genre: album.genre, publish_date: album.publish_date, on_spotify: album.on_spotify })
+    end
+    open('album.json', 'w') {|f| f << JSON.generate(albumData)}
+    open('genre.json', 'w') {|f| f << JSON.generate(genreData)}
+  end
 end

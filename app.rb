@@ -1,10 +1,12 @@
+require 'json'
 require_relative 'genre'
 require_relative 'music_album'
 
 class App
+  include DataStore
   def initialize
-    @albums = []
-    @genres = []
+    @albums = load_albums
+    @genres = load_genres
   end
 
   def get_opt(input)
