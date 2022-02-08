@@ -27,6 +27,7 @@ class Main
       @app.get_opt(option)
     end
     @app.save_album
+    @app.save_genre
     puts 'Thanks for using'
   end
 end
