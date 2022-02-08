@@ -28,38 +28,32 @@ class App
 
   def list_music_album
     puts 'There is no Album Yet! Please add books.' if @albums.empty?
-    @albums.each { |album| puts "[#{album.id}], Name: #{album.name}, Genre: #{album.genre} Publish Date: #{album.publish_date}"}
+    @albums.each do |album|
+      puts "[#{album.id}], Name: #{album.name}, Genre: #{album.genre} Publish Date: #{album.publish_date}"
+    end
   end
 
   def list_genres
     puts 'There are no Genre Yet!' if @genres.empty?
-    @genres.each { |genre| puts genre}
+    @genres.each { |genre| puts genre }
   end
 
   def add_music_album
     id = Random.rand(1..1000)
-
     print 'Name: '
     name = gets.chomp
-
     print 'Genre: '
     genre = gets.chomp
-
     print 'Publish Date: '
     date = gets.chomp
-
     print 'On Spotify Y/N:'
     on_spotify = gets.chomp.downcase
     case on_spotify
     when 'y'
       true
-    when 'n'
-      false
     else
-      puts 'Defalt value sent as NO'
       false
     end
-
     new_music_album = MusicAlbum.new(id, name, genre, date, on_spotify)
     @albums << new_music_album
     @genres << new_music_album.genre
