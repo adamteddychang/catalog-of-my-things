@@ -119,9 +119,9 @@ class App
   def list_books
     puts 'There are no books yet! Please add books.' if @books.empty?
     @books.each do |book|
-      print "[#{book['id']}] Name:#{book['name']} "
-      print "Label: #{book['label']} "
-      puts "Publisher: #{book['publisher']} Cover State: #{book['cover_state']}"
+      print "[#{book['id']}], Name:#{book['name']}, "
+      print "Label: #{book['label']}, "
+      puts "Publisher: #{book['publisher']}, Cover State: #{book['cover_state']}"
     end
   end
 
