@@ -12,4 +12,14 @@ module DataStore
       []
     end
   end
+
+  def load_genres
+    if File.exist?('genre.json')
+      JSON.parse(File.read('genre.json')).map do |genre|
+        Genre.new(genre['name'])
+      end
+    else
+      []
+    end
+  end
 end
