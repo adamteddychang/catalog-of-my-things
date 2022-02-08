@@ -11,4 +11,8 @@ class Genre
     @items << item
     item.genre = self
   end
+
+  def display_genre
+    puts("#{@id} name:#{@name}")
+  end
 end
