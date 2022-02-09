@@ -13,8 +13,6 @@ class App
 
     @books = load_books
     @labels = load_labels
-
-
   end
 
   def get_opt(input)
