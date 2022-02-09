@@ -41,6 +41,12 @@ cd catalog-of-my-things
 bundle install
 ```
 
+- Run main.rb
+
+```
+ruby main.rb
+```
+
 ## To run the tests
 - For running all the tests
 
