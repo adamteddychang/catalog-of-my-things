@@ -2,7 +2,13 @@
 
 # Catalog Of My Things 
 
-> This is the Ruby capstone group project.
+> This is the Ruby capstone group project, in this project we created a console app with an user interface.
+
+> The app allows you to add items of your choice, i.e. books or music albums, and it will also allow you to create a label or genre for said item. 
+
+> The application preserves user data by using JSON files while exiting the application. 
+
+> It will load data from the JSON files while starting up the application. 
 
 
 ## Built With
