@@ -48,11 +48,9 @@ class App
   def add_genre(genre)
     id = Random.rand(1..1000)
     genre_array = []
-    @genres.each { |genre| genre_array << genre.name}
-    if(!genre_array.include?(genre))
-      new_genre = Genre.new(id, genre)
-      @genres << new_genre
-    end
+    @genres.each { |type| genre_array << type.name }
+    new_genre = Genre.new(id, genre)
+    @genres << new_genre unless genre_array.include?(genre)
   end
 
   def add_music_album
