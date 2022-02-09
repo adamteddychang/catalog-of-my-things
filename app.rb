@@ -95,7 +95,9 @@ class App
     add_book([id, name, label, publish_date, publisher, cover_state])
     puts "\nNew Book Added!"
 
-    add_label_details(label)
+    labelnames = []
+    @labels.each { |e| labelnames << e['title'] }
+    add_label_details(label) unless labelnames.include?(label)
   end
 
   def add_label_details(title)

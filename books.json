@@ -1,1 +1,1 @@
-[{"id":111,"name":"book1","label":"label1","publish_date":"2020-10-10","publisher":"pub1","cover_state":"good"}]
+[{"id":111,"name":"book1","label":"label1","publish_date":"2020-10-10","publisher":"pub1","cover_state":"good"},{"id":50,"name":"lotr","label":"lotr","publish_date":"1010-10-10","publisher":"lotr","cover_state":"good"},{"id":399,"name":"lotr2","label":"lotr","publish_date":"1010-11-11","publisher":"lotr","cover_state":"good"}]
