@@ -10,8 +10,11 @@ class App
   def initialize
     @albums = load_albums
     @genres = load_genres
+
     @books = load_books
     @labels = load_labels
+
+
   end
 
   def get_opt(input)
@@ -42,7 +45,15 @@ class App
 
   def list_genres
     puts 'There are no Genre Yet!' if @genres.empty?
-    @genres.each { |genre| puts genre }
+    @genres.each { |genre| puts "[#{genre.id}], Genre: #{genre.name}" }
+  end
+
+  def add_genre(genre)
+    id = Random.rand(1..1000)
+    genre_array = []
+    @genres.each { |type| genre_array << type.name }
+    new_genre = Genre.new(id, genre)
+    @genres << new_genre unless genre_array.include?(genre)
   end
 
   def add_music_album
@@ -63,7 +74,7 @@ class App
     end
     new_music_album = MusicAlbum.new(id, name, genre, date, on_spotify)
     @albums << new_music_album
-    @genres << new_music_album.genre
+    add_genre(genre)
   end
 
   def get_input(request_text)

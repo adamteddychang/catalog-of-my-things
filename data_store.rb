@@ -1,8 +1,11 @@
 require 'json'
 require_relative 'music_album'
 require_relative 'genre'
+
 require_relative 'book'
 require_relative 'label'
+
+
 
 module DataStore
   def load_albums
@@ -42,6 +45,7 @@ module DataStore
     open('genre.json', 'w') { |f| f << JSON.generate(genre_data) }
   end
 
+
   def load_books
     if File.exist?('books.json')
       JSON.parse(File.read('books.json'))
@@ -76,4 +80,6 @@ module DataStore
     end
     open('labels.json', 'w') { |f| f << JSON.generate(labelsarr) }
   end
+
+
 end

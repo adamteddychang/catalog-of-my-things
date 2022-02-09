@@ -30,6 +30,7 @@ class Main
     @app.save_genre
     @app.save_book
     @app.save_label
+
     puts 'Thanks for using'
   end
 end
