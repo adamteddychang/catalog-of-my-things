@@ -42,13 +42,17 @@ class App
 
   def list_genres
     puts 'There are no Genre Yet!' if @genres.empty?
-    @genres.each { |genre| puts genre }
+    @genres.each { |genre| puts "[#{genre.id}], Genre: #{genre.name}" }
   end
 
   def add_genre(genre)
     id = Random.rand(1..1000)
-    new_genre = Genre.new(id, genre)
-    @genres << new_genre
+    genre_array = []
+    @genres.each { |genre| genre_array << genre.name}
+    if(!genre_array.include?(genre))
+      new_genre = Genre.new(id, genre)
+      @genres << new_genre
+    end
   end
 
   def add_music_album

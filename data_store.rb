@@ -6,7 +6,7 @@ module DataStore
   def load_albums
     if File.exist?('album.json')
       JSON.parse(File.read('album.json')).map do |album|
-        MusicAlbum.new(album['name'], album['genre'], album['label'], album['publish_date'], album['on_spotify'])
+        MusicAlbum.new(album['id'], album['name'], album['genre'], album['publish_date'], album['on_spotify'])
       end
     else
       []
@@ -16,7 +16,7 @@ module DataStore
   def load_genres
     if File.exist?('genre.json')
       JSON.parse(File.read('genre.json')).map do |genre|
-        Genre.new(genre['name'])
+        Genre.new(genre['id'], genre['name'])
       end
     else
       []
