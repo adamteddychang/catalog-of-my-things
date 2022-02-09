@@ -2,6 +2,9 @@ require 'json'
 require_relative 'music_album'
 require_relative 'genre'
 
+require_relative 'book'
+require_relative 'label'
+
 module DataStore
   def load_albums
     if File.exist?('album.json')
@@ -38,5 +41,40 @@ module DataStore
       genre_data.push({ id: genre.id, name: genre.name })
     end
     open('genre.json', 'w') { |f| f << JSON.generate(genre_data) }
+  end
+
+  def load_books
+    if File.exist?('books.json')
+      JSON.parse(File.read('books.json'))
+    else
+      []
+    end
+  end
+
+  def load_labels
+    if File.exist?('labels.json')
+      JSON.parse(File.read('labels.json'))
+    else
+      []
+    end
+  end
+
+  def save_book
+    booksarr = []
+    @books.each do |book|
+      booksarr.push({ id: book['id'], name: book['name'],
+                      label: book['label'], publish_date: book['publish_date'],
+                      publisher: book['publisher'], cover_state: book['cover_state'] })
+    end
+    open('books.json', 'w') { |f| f << JSON.generate(booksarr) }
+  end
+
+  def save_label
+    labelsarr = []
+    @labels.each do |label|
+      labelsarr.push({ id: label['id'], title: label['title'],
+                       color: label['color'] })
+    end
+    open('labels.json', 'w') { |f| f << JSON.generate(labelsarr) }
   end
 end

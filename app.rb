@@ -10,8 +10,9 @@ class App
   def initialize
     @albums = load_albums
     @genres = load_genres
-    @books = []
-    @labels = []
+
+    @books = load_books
+    @labels = load_labels
   end
 
   def get_opt(input)
@@ -102,8 +103,10 @@ class App
     cover_state = get_input('Input cover state eg:(good or bad)')
     add_book([id, name, label, publish_date, publisher, cover_state])
     puts "\nNew Book Added!"
-    puts @books
-    add_label_details(label)
+
+    labelnames = []
+    @labels.each { |e| labelnames << e['title'] }
+    add_label_details(label) unless labelnames.include?(label)
   end
 
   def add_label_details(title)
@@ -120,7 +123,7 @@ class App
       'color' => newlabel_instance.color
     }
     @labels << hash
-    puts @labels
+
     puts 'New label added!'
   end
 
@@ -135,6 +138,8 @@ class App
 
   def list_labels
     puts 'There are no labels yet!' if @labels.empty?
-    @labels.each { |label| puts label }
+    @labels.each do |label|
+      puts "[#{label['id']}], Title: #{label['title']}, Color: #{label['color']}"
+    end
   end
 end
